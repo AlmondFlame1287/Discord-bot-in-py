@@ -39,7 +39,3 @@ async def on_message(message):
 @bot.command(name = "dio")
 async def send_message(message):
     await message.channel.send("Borco Bio")
-
-
-
-bot.run('ODQ0ODUxNTMzMzk5OTgyMDgw.YKYbTg.r7W25PNPo6GoK6vcdr2ykY-SGKM')
