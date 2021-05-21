@@ -1,7 +1,11 @@
 from discord.ext.commands import Bot
 import os
 
-comandi = ['aiuto', 'bw', 'minecraft', 'dib', 'pag', 'gruz', 'server']
+
+token = os.environ['TOKEN']
+
+
+comandi = ['aiuto', 'bw', 'minecraft', 'dib', 'pag', 'gruz', 'server', 'lillo', 'arrotino']
 bot = Bot(command_prefix="!", case_insensitive=True)
 
 
@@ -61,7 +65,7 @@ async def serv(ctx):
 # Posaman
 
 
-@bot.command(name = 'lillo')
+@bot.command(name = comandi[7])
 async def lillo(ctx):
     await ctx.send('https://www.youtube.com/watch?v=jZbUnwjEcz0&ab_channel=AtleticoVescovioAtleticoVescovio')
     await ctx.send('so lillo')
@@ -69,10 +73,10 @@ async def lillo(ctx):
 # Arrotino
 
 
-@bot.command(name = 'arrotino')
+@bot.command(name = comandi[8])
 async def arro(ctx):
     await ctx.send('https://www.youtube.com/watch?v=MKsxkO9qn_Q&ab_channel=SocialStories')
     await ctx.send("Sveglia donne, è arrivato l'arrotino")
 
 
-bot.run(os.getenv('TOKEN'))
+bot.run(token)
