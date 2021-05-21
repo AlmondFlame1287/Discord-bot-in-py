@@ -5,7 +5,7 @@ import os
 token = os.environ['TOKEN']
 
 
-comandi = ['aiuto', 'bw', 'minecraft', 'dib', 'pag', 'gruz', 'server', 'lillo', 'arrotino']
+comandi = ['aiuto', 'bw', 'minecraft', 'dib', 'pag', 'gruz', 'server', 'lillo', 'arrotino', 'ale', 'skammettino', 'tommasino']
 bot = Bot(command_prefix="!", case_insensitive=True)
 
 
@@ -78,5 +78,25 @@ async def arro(ctx):
     await ctx.send('https://www.youtube.com/watch?v=MKsxkO9qn_Q&ab_channel=SocialStories')
     await ctx.send("Sveglia donne, è arrivato l'arrotino")
 
+# Zi
+
+
+@bot.command(name = comandi[9])
+async def zi(ctx):
+    await ctx.send('Bella zi, te se ama')
+
+# Skam
+
+
+@bot.command(name = comandi[10])
+async def skam(ctx):
+    await ctx.send('Nu frat a me ja')
+
+# Tommaso
+
+
+@bot.command(name = comandi[11])
+async def tom(ctx):
+    await ctx.send('Tommaso schiavo del governo')
 
 bot.run(token)
