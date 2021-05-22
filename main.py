@@ -1,6 +1,7 @@
 import discord
 from discord.ext.commands import Bot
 import os
+import random
 
 
 token = os.environ['TOKEN']
@@ -8,14 +9,16 @@ token = os.environ['TOKEN']
 
 comandi = ['aiuto', 'bw', 'minecraft', 'inaffidabile', 'pazzo', 'fin', 'server', 'lillo', 'arrotino', 'amo', 'fratm', 'schiavo']
 
+test = ['bestemmia']
+bestemmie = ['Porco di un/a', 'Mannaccia a', 'Certo che è proprio mongolo/a']
 
-test = ['gioco1']
+bot = Bot(command_prefix = "!", case_insensitive = True, activity = discord.Activity(type = discord.ActivityType.watching, name = "LOL, chi ride è fuori"), status = discord.Status.dnd)
 
 
-bot = Bot(command_prefix="!", case_insensitive=True)
 @bot.event
 async def on_ready():
     print("so lillo")
+
 
 # Aiuto generale
 
@@ -37,7 +40,8 @@ async def bw(ctx):
 
 @bot.command(name = comandi[2])
 async def mc(ctx):
-    await ctx.send('@everyone Vuoi giocare a minecraft?')
+    await ctx.send('@everyone Volete giocare a minecraft?')
+
 
 # {member.mention} è inaffidabile
 
@@ -115,7 +119,17 @@ async def py(ctx):
 
 
 @bot.command(name = 'aiutotest')
-async def test(ctx):
+async def aiuto_test(ctx):
     await ctx.send(test)
-    
+
+
+@bot.command(name = test[0])
+async def best(ctx, arg):
+    i = random.randint(0, 2)
+    if arg == 'madonna':
+        await ctx.send(bestemmie[i] + f' alla {arg}')
+    else:
+        await ctx.send(bestemmie[i] + f' {arg}')
+
+
 bot.run(token)
