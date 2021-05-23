@@ -4,7 +4,7 @@ from discord.ext.commands import Bot
 import random
 
 
-# token = os.environ['TOKEN']
+token = os.environ['TOKEN']
 
 
 comandi = ['aiuto', 'bw', 'minecraft', 'inaffidabile', 'pazzo', 'fin', 'server', 'lillo', 'arrotino', 'amo', 'fratm', 'schiavo', 'bestemmia']
@@ -130,4 +130,4 @@ async def aiuto_test(ctx):
 
 
 
-bot.run('ODQ0ODUxNTMzMzk5OTgyMDgw.YKYbTg.0xKfzEU_paCnGH-_Nf635Pvu9xE')
+bot.run(token)
