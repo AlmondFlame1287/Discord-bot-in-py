@@ -1,16 +1,25 @@
 import discord
 from discord.ext.commands import Bot
-# import os
+import os
+import sys
 import random
+
 
 
 token = os.environ['TOKEN']
 
 
-comandi = ['aiuto', 'bw', 'minecraft', 'inaffidabile', 'pazzo', 'fin', 'server', 'lillo', 'arrotino', 'amo', 'fratm', 'schiavo', 'bestemmia']
+comandi = [
+  'aiuto', 'bw', 'minecraft', 'inaffidabile', 'pazzo', 'fin', 'server', 'lillo', 'arrotino', 'amo', 'fratm', 'schiavo', 'bestemmia'
+  ]
 
-test = ['aiutotest','bestemmia']
-bestemmie = ['Porco dio', 'Mannaccia alla madonna', 'Quel cornuto di dio', 'Mannaccia a Gesù Cristo']
+test = [
+  'aiutotest','bestemmia'
+  ]
+  # con la collaborazione di Luigi Mondò
+bestemmie = [
+  'Porco dio', 'Mannaccia alla madonna', 'Quel cornuto di dio', 'Mannaccia a Gesù Cristo', 'Dio brodo', 'Dio terrorista', 'Dio boia', 'Dio can', 'Dio pipistrello', 'Dio droga', 'Dio mutanda', 'Dio'
+  ]
 
 bot = Bot(command_prefix = "!", case_insensitive = True, activity = discord.Activity(type = discord.ActivityType.watching, name = "LOL, chi ride è fuori"), status = discord.Status.dnd)
 
@@ -119,7 +128,7 @@ async def py(ctx):
 ######## TO DO: INSERIRE QUALCHE BESTEMMIA IN PIU' #########
 @bot.command(name = comandi[12])
 async def best(ctx):
-    await ctx.send(f'{ctx.author.mention}, indovina.. {bestemmie[random.randint(0,3)]}')
+    await ctx.send(f'{ctx.author.mention}, indovina.. {bestemmie[random.randint(0,11)]}')
 ######## TO DO: INSERIRE QUALCHE BESTEMMIA IN PIU' #########
 
 # Parte test delle nuove funzioni
@@ -128,6 +137,15 @@ async def best(ctx):
 async def aiuto_test(ctx):
     await ctx.send(test)
 
+@bot.command(name = 'addbestemmia')
+async def add_bestemmia(ctx, msg):
+    try:
+      bestemmie[range(bestemmie)] = str(msg)
+    except:
+      await ctx.send(f'Non ho potuto immagazzinare la tua bestemmia {sys.exc_info()}')
 
-
+@bot.event
+async def on_message(message):
+    if str(message.author) == "❄YT_Ale BS⛩#2354":
+        await message.channel.send('Dib non è un tipo da creative')
 bot.run(token)
